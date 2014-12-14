@@ -233,17 +233,34 @@ app.run(function ($kinvey, $rootScope, $location, $state) {
         }
 
     })
-    .controller('registerController', function ($scope, $kinvey, $ionicPopup, $ionicLoading) {
+    .controller('registerController', function ($scope, $kinvey, $ionicPopup,$location, $ionicLoading) {
         $scope.register = {};
         $scope.register = function () {
+            $ionicLoading.show({
+                content: 'Loading...',
+                animation: 'fade-in',
+                showBackdrop: true,
+                showDelay: 0
+            });
             if ($scope.register.email && ($scope.register.password1 == $scope.register.password2)) {
                 var promise = $kinvey.User.signup({
                     username: $scope.register.email,
                     password: $scope.register.password1
                 });
                 promise.then(function (data) {
-                    console.log(data)
+                    $ionicLoading.hide();
+                    $ionicPopup.alert({
+                        title: 'Success',
+                        template: 'Account Successfully created'
+                    });
+                    $location.path('/login');
+
                 }, function (err) {
+                    $ionicLoading.hide();
+                    $ionicPopup.alert({
+                        title: err.name,
+                        template: err.description
+                    });
                     console.log(err)
                 })
             } else {
