@@ -1,0 +1,36 @@
+<div class="main">
+    <div class="row login">
+        <h2>Register Yourself</h2>
+    </div>
+    <div class="row login">
+        <div class="col">
+            <div class="list">
+                <label class="item item-input">
+                <span class="input-label">
+                    <i class="icon ion-android-mail button button-positive"></i>
+                </span>
+                    <input type="email" ng-model="register.email" placeholder="Email id">
+                </label>
+                <label class="item item-input">
+                <span class="input-label">
+                    <i class="icon ion-locked button button-assertive"></i>
+               </span>
+                <input type="password" placeholder="Password" ng-model="register.password1">
+                </label>
+                <label class="item item-input">
+                <span class="input-label">
+                    <i class="icon ion-locked button button-assertive"></i>
+               </span>
+                <input type="password" placeholder="Password" ng-model="register.password2">
+                </label>
+
+                <div class="container">
+                    <button class="button button-block button-positive" ng-click="register()">
+                        Register
+                    </button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

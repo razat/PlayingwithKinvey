@@ -1,0 +1,28 @@
+<div class="main">
+    <div class="row login">
+        <div class="col"> <div class="list">
+            <label class="item item-input">
+        <span class="input-label">
+            <i class="icon ion-android-mail button button-positive"></i>
+        </span>
+                <input type="email" ng-model ="loginform.email" placeholder="Email id">
+            </label>
+            <label class="item item-input">
+        <span class="input-label">
+            <i class="icon ion-unlocked button button-energized"></i>
+       </span>
+                <input type="password" placeholder="Password" ng-model="loginform.password">
+            </label>
+
+            <div class="container">
+                <button class="button button-block button-positive" ng-click="login()">
+                    Log In
+                </button>
+                <p class="account-register-text">-- Don't have an account yet! --</p>
+                <button class="button button-block button-assertive" ng-click="redirectTo('register')" >
+                    Register
+                </button>
+            </div>
+        </div></div>
+    </div>
+</div>

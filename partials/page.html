@@ -1,0 +1,50 @@
+<div class="main">
+    <div class="row">
+        <div class="col">
+            <h3>Enroll Student in Tuttion center</h3>
+            <div class="list">
+                <label class="item item-input">
+                <span class="input-label">
+                    <i class="icon ion-android-mail button button-positive"></i>
+                </span>
+                    <input type="text" ng-model="student.name" placeholder="Student Name">
+                </label>
+                <label class="item item-input item-stacked-label">
+                <span class="input-label">Select Class</span>
+                    <ion-radio ng-model="student.class" ng-value="'c10'" default>Class 10th</ion-radio>
+                    <ion-radio ng-model="student.class" ng-value="'c11'">Class 11th</ion-radio>
+                    <ion-radio ng-model="student.class" ng-value="'c12'">Class 12th</ion-radio>
+                </label>
+                <label class="item item-input ">
+                    <span class="input-label">Fees</span>
+                    <input type="number" ng-model="student.fees" placeholder="Amount">
+                </label>
+                <div class="item item-input">
+                    <span class="input-label">Fee Day <i class="icon ion-ios7-calendar-outline"></i></span>
+                    <button class="button button-calm button-small icon ion-minus" ng-click="student.minus('feeday')"></button>
+                    <input type="number" min="1" max="30" ng-init ="student.feeDay =1" class="spinner" ng-model="student.feeDay" />
+                    <button class="button button-calm button-small icon ion-plus" ng-click="student.addIt('feeday')"></button>
+                    <span class="label-member">{{student.feeDay +' '+ dayEnding()}}</span>
+                </div>
+                <div class="container">
+                    <button class="button button-block button-positive" ng-click="addStudent()">
+                        Add Student
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="list list-of-members">
+                <a class="item my-item"
+                   ng-repeat="student in getStudents()">
+                    <img ng-src="{{getImage(student.name)}}"  class="img img-thumbnail">
+                    {{ student.name }}
+                    <br/>
+                </a>
+            </div>
+        </div>
+        <div class="col">
+            <nvd3 options="options" data="data"></nvd3>
+        </div>
+    </div>
+</div>
